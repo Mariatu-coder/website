@@ -1,132 +1,235 @@
-*{
+/* General Styles */
+html,
+body {
     margin: 0;
     padding: 0;
     font-family: 'Times New Roman', Times, serif;
-
-
+    box-sizing: border-box;
 }
-.container{
-    width:100% ;
+
+.container {
+    width: 100%;
     height: 100vh;
     background-image: url(pexels-rdne-8069377.jpg);
-    flex: 1;
-    text-align: left;
-   
-
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-  
-.navbar{
-    height:12% ;
-   display:flex ;
+/* Navbar Styles */
+.navbar {
+    height: 12%;
+    display: flex;
     align-items: center;
-    
-}
-.logo{
-    width:50px;
-    cursor: pointer;
-    margin: left 40px; 
-    position: relative;
+    padding: 0 20px;
 }
 
-.menu{
+.logo {
+    width: 50px;
+    cursor: pointer;
+}
+
+.menu {
     width: 30px;
     cursor: pointer;
+    margin-left: auto;
+}
+
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
     margin-left: 40px;
 }
 
-nav{
-    flex: 1;
-    text-align: right;
-
-
-}
-nav ul li{
-     list-style: none;
-     display:inline-block;
-     margin-left: 60px;
-     border: #000;
-     font-size: 15px;
-     font-weight: bold;
-     text-transform: capitalize;
-}
-
-nav ul li a{
-    text-decoration:none ;
+nav ul li a {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
     color: #f9004d;
-    font-size: 12px;
-
-
-
+    text-decoration: none;
+    position: relative;
+    transition: color 0.5s ease;
 }
-nav ul li a:hover{
-    color: #f9004d;
-    transition: 4s;
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: #f9004d;
+    width: 75%;
+    margin: 5px auto;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    transition: .5s;
 }
-.row{
+
+nav ul li a:hover {
+    color: #d1003b;
+}
+
+nav ul li a:hover::after {
+    opacity: 1;
+}
+
+nav ul li a:hover::after {
+    opacity: 1;
+}
+
+/* Main Content */
+.row {
     display: flex;
-    height: 80%;
     align-items: center;
+    justify-content: space-between;
+    height: 80%;
+    padding: 0 20px;
 }
-.col{
+
+.col {
     flex-basis: 50%;
-
-
-
 }
-h1{color:whitesmoke;
-    font-size: 100px;
 
+h1 {
+    color: whitesmoke;
+    font-size: 4rem;
+    line-height: 1.2;
 }
-p{
-    color:#fff ;
-    font-size: 11px;
-    list-style: 15px;  
+
+p {
+    color: #fff;
+    font-size: 1rem;
+    margin: 20px 0;
 }
-button{
+
+button {
     background-color: #f9004d;
     border: none;
-    height: 36px;
-
-}
-.card{ width:200px;
-       height: 230px;
-       display: inline-block;
-       border-radius: 10px;
-       padding: 15px 25px;
-       box-sizing: border-box;
-       cursor:pointer;
-       margin:10px 15px ;
-       background-image: url(images/london.jpg);
-       background-position: center;
-       background-size: cover;
-       transition:transform 0.5s ;
-       text-align: left;
-}
-.card1{background-image: url(house2.jpg);
-}
-.card2{background-image: url(house4.jpg);
-}
-.card3{background-image: url(house5.jpg);
-}
-.card4{background-image: url(livingroom.jpg);
+    height: 40px;
+    padding: 0 20px;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.card:hover{
-    transform: translateY(-10PX);
-
-
+button:hover {
+    background-color: #d1003b;
 }
-h5{
-    color:#fff;
+
+/* Card Styles */
+.card {
+    width: 200px;
+    height: 230px;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 10px;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.5s ease;
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card h5 {
+    color: #fff;
     text-shadow: 0 0 5px #999;
-
-}
-.card p{
-
-    font-size: 8px; 
-    text-shadow: 0 0 15px #999
-    ;
 }
 
+.card p {
+    font-size: 0.75rem;
+    text-shadow: 0 0 15px #999;
+    margin-top: 10px;
+}
+
+/* Specific Cards */
+.card1 {
+    background-image: url(house2.jpg);
+}
+
+.card2 {
+    background-image: url(house4.jpg);
+}
+
+.card3 {
+    background-image: url(house5.jpg);
+}
+
+.card4 {
+    background-image: url(livingroom.jpg);
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col {
+        width: 100%;
+        text-align: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+        margin: 20px 0;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+    }
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    nav ul li {
+        margin-left: 30px;
+    }
+
+    .card {
+        width: 45%;
+        margin: 10px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .container {
+        padding: 0 40px;
+    }
+
+    h1 {
+        font-size: 4.5rem;
+    }
+
+    .card {
+        width: 23%;
+        margin: 1.5%;
+    }
+}
